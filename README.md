@@ -1,4 +1,4 @@
-#Estructura General:
+# Estructura General:
 
 La aplicación está construida en Flutter, que utiliza el framework de Material Design.
 Se define una clase principal llamada MyApp, que extiende StatelessWidget.
