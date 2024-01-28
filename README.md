@@ -36,6 +36,71 @@ Este tipo de texto se utiliza comúnmente para dar crédito al creador de la apl
 
 ![image](https://github.com/Javi-23/oliasmoralesa02/assets/102307312/4a899daa-9030-45f9-a276-590de83bb6ca)
 
+# Ejercicio 2: Widget Button y Funcionalidad
+El siguiente código esta configurado con la idea de reutilizar código en el main principal, pues
+vamos a utilizar tres botones iguales y de esta forma estamos haciendo que nuestra aplicación sea más 
+óptima.
+```
+class ButonOperation extends StatelessWidget {
+  final String text;
+  final double fontSize;
+  final VoidCallback onPressed;
+  const ButonOperation(
+      {super.key,
+      required this.text,
+      required this.fontSize,
+      required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(2.0),
+      child: SizedBox(
+        width: 120,
+        height: 40,
+        child: FloatingActionButton(
+          onPressed: onPressed,
+          backgroundColor: const Color(0xFF1E1E1E),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14.0),
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: TextStyle(
+                fontFamily: 'PoppinsBold',
+                fontSize: fontSize,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+## Implementar
+
+De esta forma el código definido anteriormente hará su funnción la cual es añadir un boton, 
+llamando de esta manera a la clase.
+![image](https://github.com/Javi-23/OliasMoralesA02/assets/102307312/102452a3-6661-4ecf-8fc1-e213353bd6ec)
+
+## Funcionalidad
+
+En este apartado estaremos definiendo en tres métodos cada uno para una funcionalidad diferente: sumar, restar y resetear.
+Por cada botón que se pulse actualizará el resultado en el contador. Counter será la variable primitiva que se utilizará para
+representar dicho resultado
+![image](https://github.com/Javi-23/OliasMoralesA02/assets/102307312/23bf8ff8-905c-4547-a488-c3dc3550e88c)
+
+## Implemetar Funcionalidad
+De esta manera le estaremos dando al texto el valor de la variable. Es decir por cada vez que se actualize la variable
+el texto se actualizara también.
+![image](https://github.com/Javi-23/OliasMoralesA02/assets/102307312/c9694167-822a-454f-9b23-81b6c2fbf79f)
+![image](https://github.com/Javi-23/OliasMoralesA02/assets/102307312/c88591b8-f95e-4c9d-a6f5-e49f4c7f5afd)
+
+
 
 ## Getting Started
 
