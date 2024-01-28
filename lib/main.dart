@@ -1,117 +1,94 @@
 import 'package:flutter/material.dart';
+import 'package:oliasmoralesa02/widgets/button.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Counter());
+  }
+}
+
+class Counter extends StatefulWidget {
+  @override
+  CounterState createState() => CounterState();
+}
+
+class CounterState extends State<Counter> {
+  int counter = 0;
+
+  void subtract() {
+    setState(() {
+      if (counter > 0) counter--;
+    });
+  }
+
+  void resetCounter() {
+    setState(() {
+      counter = 0;
+    });
+  }
+
+  void add() {
+    setState(() {
+      counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color(0xFF353434),
+        backgroundColor: Color(0xFF353434),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'CONTADOR',
                 style: TextStyle(
                   fontFamily: 'PoppinsBold',
                   color: Colors.white,
                   fontSize: 64,
-                  fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 150),
-              const Text(
-                '0',
+              SizedBox(height: 150),
+              Text(
+                "${counter}",
                 style: TextStyle(
-                  fontFamily: 'Poppins',
+                  fontFamily: 'PoppinsThin',
                   color: Colors.white,
                   fontSize: 200,
                 ),
               ),
-              const SizedBox(height: 100),
+              SizedBox(height: 100),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: const Color.fromARGB(255, 163, 162, 162),
-                      backgroundColor: const Color(0xFF1E1E1E),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13),
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        '+',
-                        style: TextStyle(
-                          fontFamily: 'PoppinsBold',
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  Expanded(
+                    child: ButonOperation(
+                        text: "-", fontSize: 20, onPressed: subtract),
                   ),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: const Color.fromARGB(255, 163, 162, 162),
-                      backgroundColor: const Color(0xFF1E1E1E),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13),
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        'RESET',
-                        style: TextStyle(
-                          fontFamily: 'PoppinsBold',
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  SizedBox(width: 5),
+                  Expanded(
+                    child: ButonOperation(
+                        text: "RESET", fontSize: 20, onPressed: resetCounter),
                   ),
-                  const SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      foregroundColor: const Color.fromARGB(255, 163, 162, 162),
-                      backgroundColor: const Color(0xFF1E1E1E),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(13),
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        '-',
-                        style: TextStyle(
-                          fontFamily: 'PoppinsBold',
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  SizedBox(width: 5),
+                  Expanded(
+                    child:
+                        ButonOperation(text: "+", fontSize: 20, onPressed: add),
                   ),
                 ],
               ),
-              const SizedBox(height: 80),
-              const Text(
+              SizedBox(height: 50),
+              Text(
                 'By Fco Javier Olías',
                 style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
             ],
