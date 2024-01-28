@@ -97,7 +97,9 @@ representar dicho resultado
 ## Implemetar Funcionalidad
 De esta manera le estaremos dando al texto el valor de la variable. Es decir por cada vez que se actualize la variable
 el texto se actualizara también.
+
 ![image](https://github.com/Javi-23/OliasMoralesA02/assets/102307312/c9694167-822a-454f-9b23-81b6c2fbf79f)
+
 ![image](https://github.com/Javi-23/OliasMoralesA02/assets/102307312/c88591b8-f95e-4c9d-a6f5-e49f4c7f5afd)
 
 
